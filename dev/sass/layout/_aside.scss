@@ -1,0 +1,34 @@
+/* ******************************** */
+/* ******************************** */
+/* ASIDE */
+/* ******************************** */
+/* ******************************** */
+/* ******************************** */
+
+.container__texto {
+  padding: 20px 100px 0 40px;
+  @extend %grid_1x4;
+}
+
+.texto {
+  &__agrupar{
+    grid-row: 3/4;
+  }
+  &__titulo {
+    font-family: nth($font_family, 2), sans-serif;
+    font-weight: 900;
+    font-size: $h2-fz;
+    color: #fff;
+    margin-top: 0;
+  }
+  &__parrafo {
+    font-family: nth($font_family, 1), sans-serif;
+    font-size: $parrafo;
+    line-height: 21px;
+    color: $color-gris;
+  }
+  &__boton {
+      @extend %btn;
+      
+  }
+}
