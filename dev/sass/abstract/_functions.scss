@@ -1,0 +1,13 @@
+// Function de convertir una cantidad en Rem, Em ó Porcentaje
+// La función se llama con c (mínima expresión de convertir)
+@function convertir($cantidad, $tipo: "r", $base: 16) {
+    $calculoRem: $cantidad / $base;
+    @if $tipo == "r" {
+        @return $calculoRem + rem;
+    } @else if $tipo == "e" {
+        @return $calculoRem + em;
+    } @else if $tipo == "p" {
+        @return percentage($cantidad / $base);
+    }
+    // Utilizar ch( [la cantidad a convertir], [tipo de unidad r=rem e=em p=porcentaje] )
+}

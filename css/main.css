@@ -391,6 +391,7 @@ html {
 
 .texto__agrupar {
   grid-row: 3/4;
+  display: grid;
 }
 .texto__titulo {
   font-family: "Arial Black", sans-serif;
@@ -402,9 +403,13 @@ html {
 .texto__parrafo {
   font-family: "Arial", sans-serif;
   font-size: 18px;
-  line-height: 21px;
+  line-height: 1.3125rem;
   color: #E8E8E8;
 }
+.texto__boton {
+  justify-self: end;
+}
+
 /* ******************************** */
 /* ******************************** */
 /* BODY */

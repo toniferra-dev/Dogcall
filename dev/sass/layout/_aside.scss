@@ -13,6 +13,7 @@
 .texto {
   &__agrupar{
     grid-row: 3/4;
+    display: grid;
   }
   &__titulo {
     font-family: nth($font_family, 2), sans-serif;
@@ -24,11 +25,11 @@
   &__parrafo {
     font-family: nth($font_family, 1), sans-serif;
     font-size: $parrafo;
-    line-height: 21px;
+    line-height: convertir(21);
     color: $color-gris;
   }
   &__boton {
       @extend %btn;
-      
+      justify-self: end;
   }
 }

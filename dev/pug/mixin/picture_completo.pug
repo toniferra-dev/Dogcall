@@ -1,0 +1,34 @@
+// Creado por Cristian Unguras - 2020
+mixin pictureC(nombre,alter,descripcion,minM=0,maxM=767,minI=768,maxI=900,minD=1200,maxD=none)
+    picture
+        if descripcion!= null 
+            each valor in descripcion
+                case valor
+                    when 'm'
+                        source(srcset='img/smartphone/'+ nombre +'.jpg 1x,img/smartphone/'+ nombre +'@2x.jpg 2x,img/smartphone/'+ nombre +'@3x.jpg 3x' media='(min-width:' + minM + 'px) and (max-width:' + maxM + 'px)')
+                    when 'i'
+                        source(srcset='img/tablet/'+ nombre +'.jpg 1x,img/tablet/'+ nombre +'@2x.jpg 2x' media='(min-width:' + minI + 'px) and (max-width:' + maxI + 'px)')
+                    when 'd'
+                        source(srcset='img/desktop/'+ nombre +'.jpg 1x,img/desktop/'+ nombre +'@2x.jpg 2x' media='(min-width:' + minD + 'px) and (max-width:' + maxD ')')
+                    default 
+                        source(srcset='img/smartphone/'+ nombre +'.jpg 1x,img/smartphone/'+ nombre +'@2x.jpg 2x,img/smartphone/'+ nombre +'@3x.jpg 3x' media='(min-width:' + minM + 'px) and (max-width:' + maxM + 'px)')
+                        source(srcset='img/tablet/'+ nombre +'.jpg 1x,img/tablet/'+ nombre +'@2x.jpg 2x' media='(min-width:' + minI + 'px) and (max-width:' + maxI + 'px)')
+                        source(srcset='img/desktop/'+ nombre +'.jpg 1x,img/desktop/'+ nombre +'@2x.jpg 2x' media='(min-width:' + minD + 'px) and (max-width:' + maxD ')')
+        else                  
+            source(srcset='img/smartphone/'+ nombre +'.jpg 1x,img/smartphone/'+ nombre +'@2x.jpg 2x,img/smartphone/'+ nombre +'@3x.jpg 3x' media='(min-width:' + minM + 'px) and (max-width:' + maxM + 'px)')
+            ource(srcset='img/tablet/'+ nombre +'.jpg 1x,img/tablet/'+ nombre +'@2x.jpg 2x' media='(min-width:' + minI + 'px) and (max-width:' + maxI + 'px)')
+            source(srcset='img/desktop/'+ nombre +'.jpg 1x,img/desktop/'+ nombre +'@2x.jpg 2x' media='(min-width:' + minD + 'px) and (max-width:' + maxD ')')
+        img(src='' alt=alter)
+//- nombre= nombre del fichero
+//- alter= texto alternativo cuando no hay imagen
+//- descripcion= formatos que queremos dar donde:
+    m=movil
+    i=ipad
+    d=desktop 
+    Se pueden introducir en cualquier orden o no introducir nada
+    Ej. 'dim' 'dm' 'i' etc.
+//- minM,maxM,minI,maxI,minD,maxD   valores minimos
+    y maximos por defecto,por si no queremos introducirlos
+//- La logica es SI(if) tenemos(not null) "descripcion" para CADA(each) valor
+    hacemos lo que corresponde en cada caso,si la "descripcion" es null
+    significa que no hemos introducido nada con lo cual hacemos los 3 casos
